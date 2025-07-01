@@ -1,0 +1,17 @@
+# ✅ Smart crawler
+crawl4ai>=0.1.7
+
+# ✅ Embeddings (local)
+sentence-transformers>=2.2.2
+
+# ✅ Vector database
+chromadb>=0.4.24
+
+# ✅ Orchestration (retriever + LLM pipeline)
+langchain>=0.1.15
+
+# ✅ PDF handling if you upload docs
+PyMuPDF>=1.23.26
+
+# ✅ UI if you want to test chat
+streamlit>=1.34.0

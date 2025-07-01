@@ -1,5 +1,5 @@
 import asyncio
-from crawl4ai import *
+from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode
 
 async def main():
     browser_config = BrowserConfig()
@@ -11,24 +11,14 @@ async def main():
         excluded_tags=['form','header'],
         cache_mode=CacheMode.ENABLED
     )
-
-
+    url_recived = input("Enter url : ").strip()
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
-            url = "https://books.toscrape.com/",
+            url = url_recived,
             config=run_config
             )
-        
-        if result.success:
-            print(f"Content : {result.markdown[:500]}")
-        for image in result.media["images"]:
-            print(f"Found Images:{image['src']}")
-        for link in result.links["internal"]:
-            print(f"Internal Links : {link['href']}")
-
-        else:
-            print(f"Crawl Failed:{result.error_message}")
-            print(f"Status Code : {result.status_code}")
+        print("Crawl Result",result)
+        return result
 
 if __name__ == "__main__":
     asyncio.run(main())

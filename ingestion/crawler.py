@@ -1,7 +1,7 @@
 import asyncio
 from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode
 
-async def main():
+async def crawl_website(url_recived: str):
     browser_config = BrowserConfig()
     run_config = CrawlerRunConfig(
         remove_overlay_elements=True,
@@ -17,8 +17,8 @@ async def main():
             url = url_recived,
             config=run_config
             )
-        print("Crawl Result",result)
+        print("Crawl Result",result.markdown)
         return result
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(crawl_website(str))

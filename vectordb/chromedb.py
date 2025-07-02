@@ -1,5 +1,5 @@
 
-from embedder import embedded_chunks
+from vectordb.embedder import embedded_chunks
 import chromadb
 
 client = chromadb.Client()

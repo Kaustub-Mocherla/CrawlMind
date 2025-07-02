@@ -11,7 +11,7 @@ async def crawl_website(url_recived: str):
         excluded_tags=['form','header'],
         cache_mode=CacheMode.ENABLED
     )
-    url_recived = input("Enter url : ").strip()
+    
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
             url = url_recived,
@@ -21,4 +21,4 @@ async def crawl_website(url_recived: str):
         return result
 
 if __name__ == "__main__":
-    asyncio.run(crawl_website(str))
+    asyncio.run(crawl_website("https://example.com"))

@@ -7,7 +7,6 @@
   
   ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
   ![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)
-  ![License](https://img.shields.io/badge/License-MIT-green.svg)
   ![AI](https://img.shields.io/badge/AI-Powered-orange.svg)
 </div>
 

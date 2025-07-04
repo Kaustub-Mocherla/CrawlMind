@@ -7,6 +7,7 @@
   
   ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
   ![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)
+  ![License](https://img.shields.io/badge/License-MIT-green.svg)
   ![AI](https://img.shields.io/badge/AI-Powered-orange.svg)
 </div>
 
@@ -177,6 +178,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Export chat conversations
 - [ ] User authentication and sessions
 
+## 📞 Support
+
+If you encounter any issues or have questions:
+
+1. Check the [Issues](https://github.com/yourusername/crawlmind/issues) page
+2. Create a new issue with detailed description
+3. Include error logs and system information
 
 ## ⭐ Acknowledgments
 

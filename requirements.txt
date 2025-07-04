@@ -1,0 +1,8 @@
+streamlit
+validators
+chromadb
+langchain-chroma
+langchain-ollama
+langchain-core
+langchain-community
+pypdf

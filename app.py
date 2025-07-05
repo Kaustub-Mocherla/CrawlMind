@@ -6,10 +6,11 @@ import uuid
 
 import streamlit as st
 import validators
+import google.generativeai as genai
 
 from chromadb import PersistentClient
 from langchain_chroma import Chroma
-from langchain_ollama import OllamaLLM, OllamaEmbeddings
+from langchain_google_genai import GoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_core.prompts import PromptTemplate
 from langchain_community.document_loaders import TextLoader, PyPDFLoader
 
@@ -26,6 +27,30 @@ def load_css(file_path):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 load_css('styles.css')
+
+# Configure Gemini API
+if 'gemini_api_key' not in st.session_state:
+    st.session_state.gemini_api_key = ""
+
+# API Key input in sidebar
+with st.sidebar:
+    st.markdown("### API Configuration")
+    api_key = st.text_input(
+        "Gemini API Key",
+        type="password",
+        value=st.session_state.gemini_api_key,
+        help="Enter your Google Gemini API key",
+        placeholder="Enter your API key here..."
+    )
+    if api_key and api_key.strip():
+        st.session_state.gemini_api_key = api_key.strip()
+        genai.configure(api_key=api_key.strip())
+        st.success("✅ API Key configured!")
+    else:
+        st.warning("⚠️ Please enter your Gemini API key")
+        st.info("💡 Get your API key from: https://makersuite.google.com/app/apikey")
+    
+    st.divider()
 
 
 st.markdown("""
@@ -108,19 +133,24 @@ with st.sidebar:
 
     st.divider()
     if st.button(" Crawl & Embed", key="crawl_embed_btn", use_container_width=True, type="primary"):
-        with st.spinner("Processing documents..."):
-            chroma_client = PersistentClient(path="./crawlmind_db")
-            try:
-                chroma_client.delete_collection("crawlmind_collection")
-            except:
-                pass
+        if not st.session_state.gemini_api_key or st.session_state.gemini_api_key.strip() == "":
+            st.error("❌ Please enter your Gemini API key first!")
+        elif not st.session_state.urls and not st.session_state.uploaded_files:
+            st.error("❌ Please add a URL or upload documents first!")
+        else:
+            with st.spinner("Processing documents..."):
+                chroma_client = PersistentClient(path="./crawlmind_db")
+                try:
+                    chroma_client.delete_collection("crawlmind_collection")
+                except:
+                    pass
 
-            collection = chroma_client.get_or_create_collection(name="crawlmind_collection")
+                collection = chroma_client.get_or_create_collection(name="crawlmind_collection")
 
-            embedding_function = OllamaEmbeddings(
-                model="llama3.1:latest",
-                base_url="http://localhost:11434"
-            )
+                embedding_function = GoogleGenerativeAIEmbeddings(
+                    model="models/embedding-001",
+                    google_api_key=st.session_state.gemini_api_key
+                )
 
             all_chunks = []
 
@@ -145,11 +175,19 @@ with st.sidebar:
                         all_chunks.append(doc.page_content.strip())
 
             embeddings, ids, valid_chunks = [], [], []
-            for chunk in all_chunks:
-                emb = embedding_function.embed_query(chunk)
-                embeddings.append(emb)
-                ids.append(str(uuid.uuid4()))
-                valid_chunks.append(chunk)
+            try:
+                for chunk in all_chunks:
+                    emb = embedding_function.embed_query(chunk)
+                    embeddings.append(emb)
+                    ids.append(str(uuid.uuid4()))
+                    valid_chunks.append(chunk)
+            except Exception as e:
+                if "API_KEY_INVALID" in str(e):
+                    st.error("❌ Invalid API key! Please check your Gemini API key.")
+                    st.info("💡 Get a valid API key from: https://makersuite.google.com/app/apikey")
+                else:
+                    st.error(f"❌ Error processing documents: {str(e)}")
+                st.stop()
 
             if valid_chunks:
                 collection.add(documents=valid_chunks, embeddings=embeddings, ids=ids)
@@ -192,15 +230,17 @@ if st.session_state.chat_history:
             st.write(ai_msg)
 
 if user_input := st.chat_input("Enter your message here..."):
-    if st.session_state.collection is None:
-        st.error("Please upload documents and click 'Crawl & Embed' first!")
+    if not st.session_state.gemini_api_key or st.session_state.gemini_api_key.strip() == "":
+        st.error("❌ Please enter your Gemini API key first!")
+    elif st.session_state.collection is None:
+        st.error("❌ Please upload documents and click 'Crawl & Embed' first!")
     else:
         st.session_state.chat_history.append((user_input, ""))
         
         with st.spinner("Processing your query..."):
-            embedding_function = OllamaEmbeddings(
-                model="llama3.1:latest",
-                base_url="http://localhost:11434"
+            embedding_function = GoogleGenerativeAIEmbeddings(
+                model="models/embedding-001",
+                google_api_key=st.session_state.gemini_api_key
             )
 
             db = Chroma(
@@ -209,7 +249,11 @@ if user_input := st.chat_input("Enter your message here..."):
                 embedding_function=embedding_function
             )
             retriever = db.as_retriever()
-            llm = OllamaLLM(model="llama3.1:latest", base_url="http://localhost:11434")
+            llm = GoogleGenerativeAI(
+                model="gemini-1.5-flash",
+                google_api_key=st.session_state.gemini_api_key,
+                temperature=0.3
+            )
 
             docs = retriever.invoke(user_input)
             context = "\n\n".join([doc.page_content for doc in docs]) or "No relevant context found."

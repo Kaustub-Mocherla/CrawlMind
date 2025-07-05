@@ -28,11 +28,10 @@ def load_css(file_path):
 
 load_css('styles.css')
 
-# Configure Gemini API
+
 if 'gemini_api_key' not in st.session_state:
     st.session_state.gemini_api_key = ""
 
-# API Key input in sidebar
 with st.sidebar:
     st.markdown("### API Configuration")
     api_key = st.text_input(

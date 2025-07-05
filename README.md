@@ -3,58 +3,58 @@
   
   # 🔵 CrawlMind
   
-  **A powerful AI-powered document analysis and chat application**
+  **Professional AI Powered Document Analysis & Intelligence Platform**
   
   ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
   ![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)
   ![License](https://img.shields.io/badge/License-MIT-green.svg)
   ![AI](https://img.shields.io/badge/AI-Powered-orange.svg)
+  ![Gemini](https://img.shields.io/badge/Google-Gemini-4285F4.svg)
 </div>
 
 ---
 
-A powerful AI-powered document analysis and chat application built with Streamlit. CrawlMind allows you to crawl web content, upload documents, and interact with your data using advanced RAG (Retrieval Augmented Generation) technology.
+A modern, professional AI-powered document analysis and chat application built with Streamlit and Google Gemini. CrawlMind allows you to crawl web content, upload documents, and interact with your data using advanced RAG (Retrieval Augmented Generation) technology.
 
 ## ✨ Features
 
-- **🌐 Web Crawling**: Extract content from any URL
-- **📁 Document Upload**: Support for PDF and TXT files
-- **🤖 AI Chat Interface**: Natural language interaction with your documents
+- **🌐 Advanced Web Crawling**: Deep content extraction with JavaScript execution and CSS selectors
+- **📁 Document Upload**: Support for PDF and TXT files with intelligent processing
+- **🤖 Modern Chat Interface**: Clean, minimal AI chat interface inspired by AI Studio
 - **🔍 RAG Technology**: Advanced retrieval-augmented generation using ChromaDB and LangChain
-- **🎨 Modern UI**: Clean, dark-themed interface with red accent colors
-- **⚡ Real-time Processing**: Instant document embedding and retrieval
+- **🎨 Professional UI**: Modern blue/dark themed interface with centered design
+- **🔗 Social Integration**: GitHub and LinkedIn buttons for professional networking
+- **⚡ Real-time Processing**: Instant document embedding and retrieval with Google Gemini
+- **🛡️ Secure API Management**: Protected API key handling with validation
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Streamlit
-- **AI/ML**: Ollama, LangChain
-- **Vector Database**: ChromaDB
+- **Frontend**: Streamlit with custom CSS styling
+- **AI/ML**: Google Gemini API, LangChain
+- **Vector Database**: ChromaDB with persistent storage
 - **Document Processing**: PyPDF, TextLoader
-- **Web Crawling**: Custom crawler
-- **Embeddings**: Ollama Embeddings (llama3.1)
-- **LLM**: Ollama (llama3.1:latest)
+- **Web Crawling**: Enhanced crawler with crawl4ai
+- **Embeddings**: Google Generative AI Embeddings (models/embedding-001)
+- **LLM**: Google Gemini (gemini-1.5-flash)
 
 ## 📋 Prerequisites
 
 Before running CrawlMind, ensure you have:
 
 1. **Python 3.8+** installed
-2. **Ollama** installed and running locally
-3. **llama3.1:latest** model downloaded in Ollama
+2. **Google Gemini API Key** (get from Google AI Studio)
+3. **Internet connection** for API access
 
-### Installing Ollama
+### Getting a Gemini API Key
 
-```bash
-# Download and install Ollama from https://ollama.ai
-# Then pull the required model:
-ollama pull llama3.1:latest
-```
-
+1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Create a new API key
+3. Copy the key for use in the application
 ## 🚀 Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/crawlmind.git
+   git clone https://github.com/Kaustub-Mocherla/crawlmind.git
    cd crawlmind
    ```
 
@@ -77,15 +77,14 @@ ollama pull llama3.1:latest
    pip install -r requirements.txt
    ```
 
-5. **Start Ollama service**
+5. **Run the application**
    ```bash
-   ollama serve
+   streamlit run app.py
    ```
 
-6. **Run the application**
-   ```bash
-   streamlit run new_app.py
-   ```
+6. **Configure API Key**
+   - Enter your Gemini API key in the sidebar
+   - The app will validate and configure the API connection
 
 ## 📦 Dependencies
 
@@ -94,10 +93,12 @@ streamlit
 validators
 chromadb
 langchain-chroma
-langchain-ollama
+langchain-google-genai
 langchain-core
 langchain-community
 pypdf
+google-generativeai
+protobuf==3.20.3
 ```
 
 ## 🎮 Usage
@@ -105,26 +106,27 @@ pypdf
 ### 1. Start the Application
 Navigate to `http://localhost:8501` after running the Streamlit command.
 
-### 2. Choose Mode
-- **Latest Updates**: View upcoming features (coming soon)
-- **Chat with CrawlMind**: Main functionality for document analysis
+### 2. Configure API Key
+- Enter your Google Gemini API key in the sidebar
+- Look for the green "✅ API Key configured!" message
 
 ### 3. Add Content
-- **URL**: Enter a single URL to crawl web content
-- **Documents**: Upload PDF or TXT files
+- **URL**: Enter a single URL to crawl web content with advanced options
+- **Documents**: Upload PDF or TXT files for analysis
 
 ### 4. Process Documents
-Click "🚀 Crawl & Embed" to process your content and create embeddings.
+Click "� Crawl & Embed" to process your content and create embeddings.
 
 ### 5. Chat with Your Data
-Once processed, use the chat interface to ask questions about your documents.
+Use the centered chat interface to ask questions about your documents.
 
 ## 📁 Project Structure
 
 ```
 CrawlMind/
-├── new_app.py              # Main Streamlit application
-├── crawler.py              # Web crawling functionality
+├── app.py                  # Main Streamlit application
+├── crawler.py              # Enhanced web crawling functionality
+├── styles.css              # Professional UI styling
 ├── requirements.txt        # Python dependencies
 ├── artificial-intelligence.png  # App logo
 ├── crawled_content.md      # Temporary crawled content
@@ -134,22 +136,30 @@ CrawlMind/
 
 ## 🔧 Configuration
 
-### Ollama Settings
-- **Base URL**: `http://localhost:11434`
-- **Model**: `llama3.1:latest`
-- **Embedding Model**: `llama3.1:latest`
+### Gemini API Settings
+- **Model**: `gemini-1.5-flash`
+- **Embedding Model**: `models/embedding-001`
+- **Temperature**: `0.3`
+- **API Endpoint**: Google Generative AI
 
 ### ChromaDB Settings
 - **Storage Path**: `./crawlmind_db`
 - **Collection Name**: `crawlmind_collection`
+- **Persistence**: Enabled
+
+### Crawler Settings
+- **JavaScript Execution**: Enabled
+- **CSS Selectors**: Custom targeting
+- **Media Extraction**: Supported
+- **Delay Configuration**: Optimized
 
 ## 🎨 UI Theme
 
-CrawlMind features a sleek red and black theme:
-- **Background**: Pure black (#000000)
-- **Sidebar**: Dark red (#1a0000)
-- **Accent**: Red (#dc2626)
-- **Typography**: Clean, modern fonts
+CrawlMind features a sleek blue and dark theme:
+- **Background**: Deep black (#0a0a0a)
+- **Sidebar**: Dark gray (#1a1a1a)
+- **Accent**: Professional blue (#4A9EFF)
+- **Typography**: Clean, modern fonts with centered layout
 
 ## 🤝 Contributing
 
@@ -165,9 +175,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🐛 Known Issues
 
-- Ensure Ollama service is running before starting the application
+- Ensure valid Gemini API key is entered before processing
 - Large documents may take time to process
 - UTF-8 encoding is required for web content with special characters
+- Protobuf version compatibility with ChromaDB (fixed with protobuf==3.20.3)
 
 ## 🚀 Roadmap
 
@@ -177,22 +188,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Document summarization features
 - [ ] Export chat conversations
 - [ ] User authentication and sessions
+- [ ] Batch document processing
+- [ ] Enhanced web crawler with more options
 
 ## 📞 Support
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/yourusername/crawlmind/issues) page
+1. Check the [Issues](https://github.com/Kaustub-Mocherla/crawlmind/issues) page
 2. Create a new issue with detailed description
 3. Include error logs and system information
 
 ## ⭐ Acknowledgments
 
 - [Streamlit](https://streamlit.io/) - For the amazing web framework
-- [Ollama](https://ollama.ai/) - For local LLM capabilities
+- [Google Gemini](https://ai.google.dev/) - For powerful AI capabilities
 - [LangChain](https://langchain.com/) - For RAG implementation
 - [ChromaDB](https://www.trychroma.com/) - For vector storage
 
 ---
 
-Made with ❤️ by Mocherla Chandra Kaustub
+Made with ❤️ by [Kaustub Mocherla](https://github.com/Kaustub-Mocherla)

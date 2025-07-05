@@ -15,143 +15,32 @@ from langchain_community.document_loaders import TextLoader, PyPDFLoader
 
 st.set_page_config(
     page_title="CrawlMind", 
-    page_icon="🧠", 
+    page_icon="🔵", 
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
+
+def load_css(file_path):
+    with open(file_path) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+load_css('styles.css')
+
+
 st.markdown("""
-    <style>
-    .stApp {
-        background-color: #0a0a0a;
-        color: #ffffff;
-    }
-    .stSidebar {
-        background-color: #1a1a1a;
-        border-right: 1px solid #333;
-    }
-    .stButton > button {
-        background-color: #4A9EFF;
-        color: white;
-        border: 1px solid #4A9EFF;
-        border-radius: 8px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-    .stButton > button:hover {
-        background-color: #3b82f6;
-        border: 1px solid #3b82f6;
-        box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
-    }
-    .stTextInput > div > div > input {
-        background-color: #2d2d2d;
-        color: white;
-        border: 1px solid #404040;
-        border-radius: 8px;
-        transition: border-color 0.3s ease;
-    }
-    .stTextInput > div > div > input:focus {
-        border-color: #4A9EFF;
-        box-shadow: 0 0 0 1px #4A9EFF;
-    }
-    .stSelectbox > div > div > div {
-        background-color: #2d2d2d;
-        color: white;
-        border: 1px solid #404040;
-        border-radius: 8px;
-    }
-    .stRadio > div {
-        background-color: transparent;
-    }
-    .stExpander {
-        background-color: #1a1a1a;
-        border: 1px solid #333;
-        border-radius: 8px;
-    }
-    .stExpander > div > div > div > div {
-        background-color: #1a1a1a;
-    }
-    .stFileUploader > div > div {
-        background-color: #2d2d2d;
-        border: 2px dashed #404040;
-        border-radius: 8px;
-        transition: border-color 0.3s ease;
-    }
-    .stFileUploader > div > div:hover {
-        border-color: #4A9EFF;
-    }
-    .stChatInput > div {
-        max-width: 1200px;
-        margin: 0 auto;
-        margin-bottom: 2rem;
-        display: flex;
-        align-items: center;
-    }
-    .stChatInput textarea {
-        font-size: 18px !important;
-        padding: 20px 25px !important;
-        min-height: 60px !important;
-        line-height: 1.4 !important;
-        transition: all 0.3s ease !important;
-        flex: 1;
-    }
-    .stChatInput button {
-        width: 50px !important;
-        height: 50px !important;
-        margin-left: 15px !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background-color: #4A9EFF !important;
-        border: none !important;
-        color: white !important;
-        font-size: 20px !important;
-    }
-    .stChatInput button:hover {
-        background-color: #3b82f6 !important;
-        transform: scale(1.05) !important;
-    }
-    .stChatInput button svg {
-        width: 20px !important;
-        height: 20px !important;
-    }
-    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
-        color: #ffffff;
-    }
-    .stSuccess {
-        background-color: rgba(34, 197, 94, 0.1);
-        border: 1px solid #22c55e;
-        color: #22c55e;
-        border-radius: 8px;
-    }
-    .stError {
-        background-color: rgba(239, 68, 68, 0.1);
-        border: 1px solid #ef4444;
-        color: #ef4444;
-        border-radius: 8px;
-    }
-    .stWarning {
-        background-color: rgba(245, 158, 11, 0.1);
-        border: 1px solid #f59e0b;
-        color: #f59e0b;
-        border-radius: 8px;
-    }
-    .stInfo {
-        background-color: rgba(74, 158, 255, 0.1);
-        border: 1px solid #4A9EFF;
-        color: #4A9EFF;
-        border-radius: 8px;
-    }
-    div[data-testid="stSidebar"] > div {
-        padding-top: 2rem;
-    }
-    .stSpinner > div {
-        border-top-color: #4A9EFF !important;
-    }
-    </style>
+    <div class="social-buttons">
+        <a href="https://github.com/Kaustub-Mocherla" target="_blank" class="social-button github" title="GitHub">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 10.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-.588 8.199-5.084 8.199-10.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/kaustub-mocherla/" target="_blank" class="social-button linkedin" title="LinkedIn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+        </a>
+    </div>
 """, unsafe_allow_html=True)
 
 if "urls" not in st.session_state:
@@ -176,9 +65,9 @@ with st.sidebar:
     
     st.divider()
     
-    st.markdown("### 🔧 Document Setup")
+    st.markdown("### Document Setup")
     
-    with st.expander("🌐 Add URL", expanded=True):
+    with st.expander(" Add URL", expanded=True):
         new_url = st.text_input(
             "Enter URL", 
             placeholder="https://example.com",
@@ -201,11 +90,11 @@ with st.sidebar:
                 st.rerun()
 
         if st.session_state.urls:
-            st.markdown("**📋 Current URL:**")
+            st.markdown("** Current URL:**")
             url = st.session_state.urls[0]
             st.text(f"• {url[:60]}..." if len(url) > 60 else f"• {url}")
 
-    with st.expander("📁 Upload Documents", expanded=True):
+    with st.expander(" Upload Documents", expanded=True):
         uploaded_docs = st.file_uploader(
             "Choose files",
             type=["txt", "pdf"],
@@ -218,7 +107,7 @@ with st.sidebar:
             st.success(f"Uploaded {len(uploaded_docs)} file(s)")
 
     st.divider()
-    if st.button("🚀 Crawl & Embed", key="crawl_embed_btn", use_container_width=True, type="primary"):
+    if st.button(" Crawl & Embed", key="crawl_embed_btn", use_container_width=True, type="primary"):
         with st.spinner("Processing documents..."):
             chroma_client = PersistentClient(path="./crawlmind_db")
             try:
@@ -265,11 +154,10 @@ with st.sidebar:
             if valid_chunks:
                 collection.add(documents=valid_chunks, embeddings=embeddings, ids=ids)
                 st.session_state.collection = collection
-                st.success(f"✅ Embedded {len(valid_chunks)} chunks.")
+                st.success(f"Embedded {len(valid_chunks)} chunks.")
             else:
                 st.warning("No valid chunks found!")
 
-# Load and encode the logo for the main title
 import base64
 if 'logo_base64' not in st.session_state:
     try:
@@ -287,7 +175,7 @@ st.markdown("""
             </h1>
         </div>
         <p style="font-size: 1.2rem; color: #a0a0a0; margin: 0;">
-            Professional AI-Powered Document Analysis & Intelligence Platform
+            Professional AI Powered Document Analysis & Intelligence Platform
         </p>
     </div>
 """.format(
@@ -303,9 +191,9 @@ if st.session_state.chat_history:
         with st.chat_message("assistant"):
             st.write(ai_msg)
 
-if user_input := st.chat_input("Enter your message here... Ask me anything about your documents!"):
+if user_input := st.chat_input("Enter your message here..."):
     if st.session_state.collection is None:
-        st.error("⚠️ Please upload documents and click 'Crawl & Embed' first!")
+        st.error("Please upload documents and click 'Crawl & Embed' first!")
     else:
         st.session_state.chat_history.append((user_input, ""))
         

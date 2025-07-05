@@ -1,7 +1,7 @@
 <div align="center">
   <img src="artificial-intelligence.png" alt="CrawlMind Logo" width="160" height="160">
   
-  # 🔴 CrawlMind
+  #  CrawlMind
   
   **A powerful AI-powered document analysis and chat application**
   

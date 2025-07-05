@@ -2,7 +2,9 @@ streamlit
 validators
 chromadb
 langchain-chroma
-langchain-ollama
+langchain-google-genai
 langchain-core
 langchain-community
 pypdf
+google-generativeai
+protobuf==3.20.3

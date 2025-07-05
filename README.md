@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="artificial-intelligence.png" alt="CrawlMind Logo" width="120" height="120">
+  <img src="artificial-intelligence.png" alt="CrawlMind Logo" width="160" height="160">
   
   # 🔴 CrawlMind
   

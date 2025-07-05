@@ -123,7 +123,7 @@ Once processed, use the chat interface to ask questions about your documents.
 
 ```
 CrawlMind/
-├── new_app.py              # Main Streamlit application
+├── app.py              # Main Streamlit application
 ├── crawler.py              # Web crawling functionality
 ├── requirements.txt        # Python dependencies
 ├── artificial-intelligence.png  # App logo
@@ -178,13 +178,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Export chat conversations
 - [ ] User authentication and sessions
 
-## 📞 Support
 
-If you encounter any issues or have questions:
-
-1. Check the [Issues](https://github.com/yourusername/crawlmind/issues) page
-2. Create a new issue with detailed description
-3. Include error logs and system information
 
 ## ⭐ Acknowledgments
 

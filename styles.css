@@ -1,0 +1,214 @@
+.stApp {
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+
+.stSidebar {
+    background-color: #1a1a1a;
+    border-right: 1px solid #333;
+}
+
+.stButton > button {
+    background-color: #4A9EFF;
+    color: white;
+    border: 1px solid #4A9EFF;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.stButton > button:hover {
+    background-color: #3b82f6;
+    color: white;
+    border: 1px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+}
+
+.stTextInput > div > div > input {
+    background-color: #2d2d2d;
+    color: white;
+    border: 1px solid #404040;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.stTextInput > div > div > input:focus {
+    border-color: #4A9EFF;
+    box-shadow: 0 0 0 1px #4A9EFF;
+}
+
+.stSelectbox > div > div > div {
+    background-color: #2d2d2d;
+    color: white;
+    border: 1px solid #404040;
+    border-radius: 8px;
+}
+
+.stRadio > div {
+    background-color: transparent;
+}
+
+.stExpander {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.stExpander > div > div > div > div {
+    background-color: #1a1a1a;
+}
+
+.stExpander [data-testid="stExpanderToggleIcon"] {
+    color: #4A9EFF !important;
+}
+
+.stExpander:hover {
+    border-color: #4A9EFF !important;
+}
+
+.stExpander summary:hover {
+    color: #4A9EFF !important;
+}
+
+.stExpander summary {
+    color: #ffffff !important;
+    transition: color 0.3s ease !important;
+}
+
+.stFileUploader > div > div {
+    background-color: #2d2d2d;
+    border: 2px dashed #404040;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.stFileUploader > div > div:hover {
+    border-color: #4A9EFF;
+}
+
+.stChatInput > div {
+    max-width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.stChatInput textarea {
+    font-size: 18px !important;
+    padding: 20px 25px !important;
+    min-height: 60px !important;
+    line-height: 1.4 !important;
+    transition: all 0.3s ease !important;
+    flex: 1;
+}
+
+.stChatInput button {
+    width: 40px !important;
+    height: 40px !important;
+    margin-left: 15px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #4A9EFF !important;
+    border: none !important;
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.stChatInput button:hover {
+    background-color: #3b82f6 !important;
+    transform: scale(1.05) !important;
+}
+
+.stChatInput button svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+    color: #ffffff;
+}
+
+.stSuccess {
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid #22c55e;
+    color: #22c55e;
+    border-radius: 8px;
+}
+
+.stError {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    border-radius: 8px;
+}
+
+.stWarning {
+    background-color: rgba(245, 158, 11, 0.1);
+    border: 1px solid #f59e0b;
+    color: #f59e0b;
+    border-radius: 8px;
+}
+
+.stInfo {
+    background-color: rgba(74, 158, 255, 0.1);
+    border: 1px solid #4A9EFF;
+    color: #4A9EFF;
+    border-radius: 8px;
+}
+
+div[data-testid="stSidebar"] > div {
+    padding-top: 2rem;
+}
+
+.stSpinner > div {
+    border-top-color: #4A9EFF !important;
+}
+
+.social-buttons {
+    position: fixed;
+    top: 58px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.social-button {
+    width: 45px;
+    height: 45px;
+    background-color: #2d2d2d;
+    border: 1px solid #404040;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-button:hover {
+    background-color: #4A9EFF;
+    border-color: #4A9EFF;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+}
+
+.social-button.github:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+.social-button.linkedin:hover {
+    background-color: #0077b5;
+    border-color: #0077b5;
+}

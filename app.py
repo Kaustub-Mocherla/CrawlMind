@@ -152,49 +152,49 @@ with st.sidebar:
                     google_api_key=st.session_state.gemini_api_key
                 )
 
-            all_chunks = []
+                all_chunks = []
 
-            for url in st.session_state.urls:
-                subprocess.run([sys.executable, "crawler.py", url])
-                if os.path.exists("crawled_content.md"):
-                    with open("crawled_content.md", "r", encoding="utf-8") as f:
-                        text = f.read().strip()
-                        if text:
-                            all_chunks.append(text)
+                for url in st.session_state.urls:
+                    subprocess.run([sys.executable, "crawler.py", url])
+                    if os.path.exists("crawled_content.md"):
+                        with open("crawled_content.md", "r", encoding="utf-8") as f:
+                            text = f.read().strip()
+                            if text:
+                                all_chunks.append(text)
 
-            for file in st.session_state.uploaded_files:
-                suffix = file.name.split(".")[-1]
-                with tempfile.NamedTemporaryFile(delete=False, suffix=f".{suffix}") as tmp_file:
-                    tmp_file.write(file.getvalue())
-                    tmp_path = tmp_file.name
+                for file in st.session_state.uploaded_files:
+                    suffix = file.name.split(".")[-1]
+                    with tempfile.NamedTemporaryFile(delete=False, suffix=f".{suffix}") as tmp_file:
+                        tmp_file.write(file.getvalue())
+                        tmp_path = tmp_file.name
 
-                loader = PyPDFLoader(tmp_path) if suffix == "pdf" else TextLoader(tmp_path)
-                docs = loader.load()
-                for doc in docs:
-                    if doc.page_content.strip():
-                        all_chunks.append(doc.page_content.strip())
+                    loader = PyPDFLoader(tmp_path) if suffix == "pdf" else TextLoader(tmp_path)
+                    docs = loader.load()
+                    for doc in docs:
+                        if doc.page_content.strip():
+                            all_chunks.append(doc.page_content.strip())
 
-            embeddings, ids, valid_chunks = [], [], []
-            try:
-                for chunk in all_chunks:
-                    emb = embedding_function.embed_query(chunk)
-                    embeddings.append(emb)
-                    ids.append(str(uuid.uuid4()))
-                    valid_chunks.append(chunk)
-            except Exception as e:
-                if "API_KEY_INVALID" in str(e):
-                    st.error("❌ Invalid API key! Please check your Gemini API key.")
-                    st.info("💡 Get a valid API key from: https://makersuite.google.com/app/apikey")
+                embeddings, ids, valid_chunks = [], [], []
+                try:
+                    for chunk in all_chunks:
+                        emb = embedding_function.embed_query(chunk)
+                        embeddings.append(emb)
+                        ids.append(str(uuid.uuid4()))
+                        valid_chunks.append(chunk)
+                except Exception as e:
+                    if "API_KEY_INVALID" in str(e):
+                        st.error("❌ Invalid API key! Please check your Gemini API key.")
+                        st.info("💡 Get a valid API key from: https://makersuite.google.com/app/apikey")
+                    else:
+                        st.error(f"❌ Error processing documents: {str(e)}")
+                    st.stop()
+
+                if valid_chunks:
+                    collection.add(documents=valid_chunks, embeddings=embeddings, ids=ids)
+                    st.session_state.collection = collection
+                    st.success(f"Embedded {len(valid_chunks)} chunks.")
                 else:
-                    st.error(f"❌ Error processing documents: {str(e)}")
-                st.stop()
-
-            if valid_chunks:
-                collection.add(documents=valid_chunks, embeddings=embeddings, ids=ids)
-                st.session_state.collection = collection
-                st.success(f"Embedded {len(valid_chunks)} chunks.")
-            else:
-                st.warning("No valid chunks found!")
+                    st.warning("No valid chunks found!")
 
 import base64
 if 'logo_base64' not in st.session_state:
@@ -259,13 +259,14 @@ if user_input := st.chat_input("Enter your message here..."):
             context = "\n\n".join([doc.page_content for doc in docs]) or "No relevant context found."
 
             rag_prompt = PromptTemplate.from_template("""
-You are an assistant for question-answering tasks.
+You are an CrawlMind AI assistant for question-answering tasks.
 Use the retrieved context below to answer the question.
 If you don't know, say you don't know.
+if the user says bye or goodbye somrthing like that, say goodbye and end the conversation.
 
 Context:
 {context}
-
+                                                      
 Question:
 {question}
 

@@ -3,6 +3,7 @@ import sys
 import subprocess
 import tempfile
 import uuid
+import shutil
 
 import streamlit as st
 import validators
@@ -31,6 +32,7 @@ load_css('styles.css')
 
 if 'gemini_api_key' not in st.session_state:
     st.session_state.gemini_api_key = ""
+
 
 with st.sidebar:
     st.markdown("### API Configuration")
@@ -114,7 +116,7 @@ with st.sidebar:
                 st.rerun()
 
         if st.session_state.urls:
-            st.markdown("** Current URL:**")
+            st.markdown("Current URL:")
             url = st.session_state.urls[0]
             st.text(f"• {url[:60]}..." if len(url) > 60 else f"• {url}")
 
@@ -138,12 +140,12 @@ with st.sidebar:
             st.error("❌ Please add a URL or upload documents first!")
         else:
             with st.spinner("Processing documents..."):
-                chroma_client = PersistentClient(path="./crawlmind_db")
-                try:
-                    chroma_client.delete_collection("crawlmind_collection")
-                except:
-                    pass
-
+                db_path = "./crawlmind_db"
+                if os.path.exists(db_path):
+                    shutil.rmtree(db_path)
+                    st.info("🗑️ Cleared previous database")
+                
+                chroma_client = PersistentClient(path=db_path)
                 collection = chroma_client.get_or_create_collection(name="crawlmind_collection")
 
                 embedding_function = GoogleGenerativeAIEmbeddings(
@@ -236,28 +238,32 @@ if user_input := st.chat_input("Enter your message here..."):
     else:
         st.session_state.chat_history.append((user_input, ""))
         
-        with st.spinner("Processing your query..."):
-            embedding_function = GoogleGenerativeAIEmbeddings(
-                model="models/embedding-001",
-                google_api_key=st.session_state.gemini_api_key
-            )
+        with st.chat_message("user"):
+            st.write(user_input)
+        
+        with st.chat_message("assistant"):
+            with st.spinner("Processing your query..."):
+                embedding_function = GoogleGenerativeAIEmbeddings(
+                    model="models/embedding-001",
+                    google_api_key=st.session_state.gemini_api_key
+                )
 
-            db = Chroma(
-                client=PersistentClient(path="./crawlmind_db"),
-                collection_name="crawlmind_collection",
-                embedding_function=embedding_function
-            )
-            retriever = db.as_retriever()
-            llm = GoogleGenerativeAI(
-                model="gemini-1.5-flash",
-                google_api_key=st.session_state.gemini_api_key,
-                temperature=0.3
-            )
+                db = Chroma(
+                    client=PersistentClient(path="./crawlmind_db"),
+                    collection_name="crawlmind_collection",
+                    embedding_function=embedding_function
+                )
+                retriever = db.as_retriever()
+                llm = GoogleGenerativeAI(
+                    model="gemini-1.5-flash",
+                    google_api_key=st.session_state.gemini_api_key,
+                    temperature=0.3
+                )
 
-            docs = retriever.invoke(user_input)
-            context = "\n\n".join([doc.page_content for doc in docs]) or "No relevant context found."
+                docs = retriever.invoke(user_input)
+                context = "\n\n".join([doc.page_content for doc in docs]) or "No relevant context found."
 
-            rag_prompt = PromptTemplate.from_template("""
+                rag_prompt = PromptTemplate.from_template("""
 You are an CrawlMind AI assistant for question-answering tasks.
 Use the retrieved context below to answer the question.
 If you don't know, say you don't know.
@@ -272,12 +278,12 @@ Question:
 Answer in 2-3 clear sentences.
 """)
 
-            final_prompt = rag_prompt.format(
-                context=context,
-                question=user_input
-            )
+                final_prompt = rag_prompt.format(
+                    context=context,
+                    question=user_input
+                )
 
-            answer = llm.invoke(final_prompt)
-            
-            st.session_state.chat_history[-1] = (user_input, answer)
-            st.rerun()
+                answer = llm.invoke(final_prompt)
+                
+                st.session_state.chat_history[-1] = (user_input, answer)
+                st.write(answer)

@@ -209,11 +209,3 @@ If you encounter any issues or have questions:
 ---
 
 Made with ❤️ by [Kaustub Mocherla](https://github.com/Kaustub-Mocherla)
-
-
-
-```bash
-streamlit run app.py
-```
-
---

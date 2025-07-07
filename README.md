@@ -216,4 +216,4 @@ Made with ❤️ by [Kaustub Mocherla](https://github.com/Kaustub-Mocherla)
 streamlit run app.py
 ```
 
----
+--

@@ -438,5 +438,4 @@ docker-compose up --build -d
 ---
 
 <p align="center">Made with ❤️ by the CrawlMind Team</p>
-#   C r a w l M i n d  
- 
+#

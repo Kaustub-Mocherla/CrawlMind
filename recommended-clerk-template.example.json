@@ -1,0 +1,9 @@
+{
+  "user_id": "{{user.id}}",
+  "email": "{{user.primary_email_address.email_address}}",
+  "name": "{{user.full_name}}",
+  "first_name": "{{user.first_name}}",
+  "last_name": "{{user.last_name}}",
+  "image_url": "{{user.image_url}}",
+  "aud": "https://your-clerk-instance.clerk.accounts.dev"
+}

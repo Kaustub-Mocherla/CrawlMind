@@ -1,0 +1,71 @@
+# CrawlMind - Full Stack AI RAG System Requirements
+# Production-ready dependencies for Next.js + FastAPI + Streamlit + Clerk Authentication
+
+# Core Web Crawling & AI
+crawl4ai>=0.2.77
+google-generativeai>=0.8.3
+
+# Web Framework and UI
+streamlit>=1.41.0
+fastapi>=0.115.6
+uvicorn[standard]>=0.32.1
+validators>=0.34.0
+python-multipart>=0.0.16
+
+# Vector Database and Embeddings  
+chromadb>=0.5.23
+protobuf>=3.20.3,<5.0.0
+numpy>=1.24.3,<2.0.0
+
+# LangChain Ecosystem
+langchain>=0.3.10
+langchain-chroma>=0.1.4
+langchain-google-genai>=2.0.8
+langchain-core>=0.3.21
+langchain-community>=0.3.10
+
+# Authentication & Security
+PyJWT>=2.10.1
+cryptography>=44.0.0
+requests>=2.32.3
+
+# Document Processing
+pypdf>=5.1.0
+python-docx>=1.1.2
+python-pptx>=1.0.2
+
+# Data Processing & Utilities
+pandas>=2.2.3
+openpyxl>=3.1.5
+aiofiles>=24.1.0
+python-dotenv>=1.0.1
+
+# Network and HTTP
+httpx>=0.28.1
+aiohttp>=3.11.10
+
+# Environment and Configuration
+python-decouple>=3.8
+structlog>=24.4.0
+
+# Development & Deployment
+setuptools>=75.6.0
+wheel>=0.45.1
+colorama>=0.4.6
+
+# Async Support & Type Hints
+typing-extensions>=4.12.2
+pydantic>=2.10.4
+
+# Additional ML Dependencies
+sentence-transformers>=3.3.1
+transformers>=4.47.1
+torch>=2.5.1
+
+# Web Scraping Enhancement
+selenium>=4.27.1
+beautifulsoup4>=4.12.3
+lxml>=5.3.0
+
+# Monitoring & Logging
+python-json-logger>=3.2.1

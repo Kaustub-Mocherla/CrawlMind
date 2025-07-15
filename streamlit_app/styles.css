@@ -1,0 +1,787 @@
+.stApp {
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+
+.stSidebar {
+    background-color: #1a1a1a;
+    border-right: 1px solid #333;
+}
+
+.stButton > button {
+    background-color: #4A9EFF;
+    color: white;
+    border: 1px solid #4A9EFF;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.stButton > button:hover {
+    background-color: #3b82f6;
+    color: white;
+    border: 1px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+}
+
+.stTextInput > div > div > input {
+    background-color: #2d2d2d;
+    color: white;
+    border: 1px solid #404040;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.stTextInput > div > div > input:focus {
+    border-color: #4A9EFF;
+    box-shadow: 0 0 0 1px #4A9EFF;
+}
+
+.stSelectbox > div > div > div {
+    background-color: #2d2d2d;
+    color: white;
+    border: 1px solid #404040;
+    border-radius: 8px;
+}
+
+.stRadio > div {
+    background-color: transparent;
+}
+
+.stExpander {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.stExpander > div > div > div > div {
+    background-color: #1a1a1a;
+}
+
+.stExpander [data-testid="stExpanderToggleIcon"] {
+    color: #4A9EFF !important;
+}
+
+.stExpander:hover {
+    border-color: #4A9EFF !important;
+}
+
+.stExpander summary:hover {
+    color: #4A9EFF !important;
+}
+
+.stExpander summary {
+    color: #ffffff !important;
+    transition: color 0.3s ease !important;
+}
+
+.stFileUploader > div > div {
+    background-color: #2d2d2d;
+    border: 2px dashed #404040;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.stFileUploader > div > div:hover {
+    border-color: #4A9EFF;
+}
+
+.stChatInput > div {
+    max-width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.stChatInput textarea {
+    font-size: 18px !important;
+    padding: 20px 25px !important;
+    min-height: 60px !important;
+    line-height: 1.4 !important;
+    transition: all 0.3s ease !important;
+    flex: 1;
+}
+
+.stChatInput button {
+    width: 40px !important;
+    height: 40px !important;
+    margin-left: 15px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #4A9EFF !important;
+    border: none !important;
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.stChatInput button:hover {
+    background-color: #3b82f6 !important;
+    transform: scale(1.05) !important;
+}
+
+.stChatInput button svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+    color: #ffffff;
+}
+
+.stSuccess {
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid #22c55e;
+    color: #22c55e;
+    border-radius: 8px;
+}
+
+.stError {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    border-radius: 8px;
+}
+
+.stWarning {
+    background-color: rgba(245, 158, 11, 0.1);
+    border: 1px solid #f59e0b;
+    color: #f59e0b;
+    border-radius: 8px;
+}
+
+.stInfo {
+    background-color: rgba(74, 158, 255, 0.1);
+    border: 1px solid #4A9EFF;
+    color: #4A9EFF;
+    border-radius: 8px;
+}
+
+div[data-testid="stSidebar"] > div {
+    padding-top: 2rem;
+}
+
+.stSpinner > div {
+    border-top-color: #4A9EFF !important;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.social-button {
+    width: 45px;
+    height: 45px;
+    background-color: #2d2d2d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-button:hover {
+    background-color: #4A9EFF;
+    border-color: #4A9EFF;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+}
+
+.social-button.github {
+    background-color: #24292e;
+    border-radius: 50%;
+    border: 1px solid #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-button.github:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-button.linkedin {
+    background-color: #333;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 119, 181, 0.2);
+}
+
+.social-button.linkedin:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-links-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 5px 15px;
+
+}
+
+.footer-social-links {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 999;
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 10px 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-button span {
+    display: none;
+}
+
+.social-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Header with logo, social links and profile */
+.header-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.header-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: rotate(10deg);
+}
+
+/* User Profile Styles */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-arrow {
+    margin-left: 5px;
+    opacity: 0.7;
+    transition: transform 0.2s;
+}
+
+.user-profile:hover .dropdown-arrow {
+    transform: translateY(2px);
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(74, 158, 255, 0.7);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.profile-picture-fallback {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4A9EFF;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid rgba(74, 158, 255, 0.7);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.user-profile:hover .profile-picture,
+.user-profile:hover .profile-picture-fallback {
+    border-color: #4A9EFF;
+    box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.user-name {
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 130px;
+    margin-left: 5px;
+}
+
+/* Profile dropdown menu */
+.profile-container {
+    position: relative;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    padding: 10px 0;
+    min-width: 280px;
+    display: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1010;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-container:hover .profile-dropdown {
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.dropdown-item.user-info {
+    padding: 12px 15px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.user-fullname {
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
+}
+
+.user-email {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 170px;
+}
+
+.dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+}
+
+/* Authentication UI Styles */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.auth-logo {
+    
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+    border-radius: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.auth-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(74, 158, 255, 0.2);
+}
+
+.auth-card {
+    width: 100%;
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg,#bfc5cc, #4d9bf4, #b9c4d2);
+}
+
+.auth-title {
+    color: #4A9EFF;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.auth-subtitle {
+    color: #a0a0a0;
+    font-size: 16px;
+    text-align: left;
+    margin: 5px 0 0 0;
+    padding: 0;
+}
+
+.auth-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+    gap: 15px;
+    width: 100%;
+}
+
+.auth-header-standalone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    gap: 15px;
+    text-align: left;
+}
+
+.auth-title-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.auth-inline-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+    padding: 0;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+.auth-inline-logo:hover {
+    transform: rotate(5deg);
+}
+
+
+.auth-button {
+    background:#4A9EFF;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.85rem 2rem;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    box-shadow: 0 12px 32px rgba(61, 141, 233, 0.368);
+}
+
+.auth-button:hover {
+    background: #4A9EFF;
+    text-decoration: none;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(74, 158, 255, 0.2);
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-divider::before {
+    margin-right: 1rem;
+}
+
+.auth-divider::after {
+    margin-left: 1rem;
+}
+
+.auth-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.auth-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.auth-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(74, 158, 255, 0.15);
+    color: #4A9EFF;
+}
+
+.auth-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: #4A9EFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.auth-footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Loading animations */
+.auth-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1.5rem;
+}
+
+.auth-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(74, 158, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #4A9EFF;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.auth-loading-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+/* Token debug panel styling */
+.debug-panel {
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+.debug-panel-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+/* Chat message styling */
+.chat-input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #0a0a0a;
+    padding: 10px 20px;
+    border-top: 1px solid #333;
+    z-index: 100;
+}
+
+/* Style for the chat messages */
+.stChatMessage {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+}
+
+.stChatMessage[data-testid="stChatMessageUser"] {
+    background-color: #152f52;
+    border: 1px solid #234a7c;
+}
+
+.stChatMessage[data-testid="stChatMessageAssistant"] {
+    background-color: #222222;
+    border: 1px solid #444;
+}
+
+.stChatInput > div {
+    max-width: 1200px;
+    height: 70px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.stChatInput textarea {
+    font-size: 18px !important;
+    padding: 20px 25px !important;
+    min-height: 60px !important;
+    line-height: 1.4 !important;
+    transition: all 0.3s ease !important;
+    flex: 1;
+}
+
+.stChatInput button {
+    width: 40px !important;
+    height: 40px !important;
+    margin-left: 15px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #4A9EFF !important;
+    border: none !important;
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.stChatInput button:hover {
+    background-color: #3b82f6 !important;
+    transform: scale(1.05) !important;
+}
+
+.stChatInput button svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+/* Container for chat messages to provide scrolling */
+.main .block-container {
+    padding-bottom: 100px; /* Make room for fixed chat input */
+    max-width: 1200px;
+    margin: 0 auto;
+}

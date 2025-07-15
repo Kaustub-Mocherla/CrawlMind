@@ -228,14 +228,23 @@ def verify_token_with_api(token: str) -> bool:
                     st.session_state.user_email = decoded.get(field)
                     break
             
-            # Get name from various possible fields
-            if 'name' in decoded and not st.session_state.user_name:
+                    # Build user_name safely
+            if 'name' in decoded and decoded.get('name'):
                 st.session_state.user_name = decoded.get('name')
-            elif 'given_name' in decoded and 'family_name' in decoded and not st.session_state.user_name:
-                st.session_state.user_name = f"{decoded.get('given_name')} {decoded.get('family_name')}"
-            elif 'firstName' in decoded and 'lastName' in decoded and not st.session_state.user_name:
+            elif decoded.get('firstName') and decoded.get('lastName'):
                 st.session_state.user_name = f"{decoded.get('firstName')} {decoded.get('lastName')}"
-                
+            elif decoded.get('firstName'):
+                st.session_state.user_name = decoded.get('firstName')
+            elif decoded.get('given_name') and decoded.get('family_name'):
+                st.session_state.user_name = f"{decoded.get('given_name')} {decoded.get('family_name')}"
+            elif decoded.get('username'):
+                st.session_state.user_name = decoded.get('username')
+            elif st.session_state.user_email:
+                email_name = st.session_state.user_email.split('@')[0]
+                st.session_state.user_name = email_name.replace('.', ' ').title()
+            else:
+                st.session_state.user_name = "User"
+
             # Look for profile image in various fields
             for field in ['picture', 'image', 'avatar_url', 'profile_image', 'image_url']:
                 if field in decoded and not st.session_state.user_image and decoded.get(field):
@@ -260,10 +269,21 @@ def verify_token_with_api(token: str) -> bool:
             # Store user details from API response
             st.session_state.user_id = user_data.get('user_id')
             st.session_state.user_email = user_data.get('email')
-            
-            # Get name from the response
-            if 'name' in user_data and user_data.get('name'):
+            if user_data.get('name'):
                 st.session_state.user_name = user_data.get('name')
+            elif user_data.get('firstName') and user_data.get('lastName'):
+                st.session_state.user_name = f"{user_data.get('firstName')} {user_data.get('lastName')}"
+            elif user_data.get('firstName'):
+                st.session_state.user_name = user_data.get('firstName')
+            elif user_data.get('username'):
+                st.session_state.user_name = user_data.get('username')
+            elif st.session_state.user_email:
+                email_name = st.session_state.user_email.split('@')[0]
+                st.session_state.user_name = email_name.replace('.', ' ').title()
+            else:
+                st.session_state.user_name = "User"
+
+
             
             # Get profile image from the response
             if 'profile_image' in user_data and user_data.get('profile_image'):
@@ -624,7 +644,6 @@ def show_main_app():
 
     with st.sidebar:
         name = st.session_state.user_name or "User"
-        
         image = st.session_state.user_image
 
         # Create base64 image if not a URL
@@ -815,21 +834,23 @@ def get_user_details_from_token(token):
         if not email and 'primary_email' in payload:
             email = payload.get('primary_email')
         
-        # Extract name with multiple fallbacks
-        if 'name' in payload and payload.get('name'):
-            name = payload.get('name')
-        elif 'firstName' in payload and 'lastName' in payload:
+        if payload.get('name'):
+             name = payload.get('name')
+        elif payload.get('firstName') and payload.get('lastName'):
             name = f"{payload.get('firstName')} {payload.get('lastName')}"
-        elif 'given_name' in payload and 'family_name' in payload:
+        elif payload.get('firstName'):
+            name = payload.get('firstName')
+        elif payload.get('given_name') and payload.get('family_name'):
             name = f"{payload.get('given_name')} {payload.get('family_name')}"
+        elif payload.get('username'):
+            name = payload.get('username')
+        elif email:
+            username = email.split('@')[0]
+            name = ' '.join([part.capitalize() for part in username.split('.')])
         else:
-            # Try to extract from email if available
-            if email:
-                username = email.split('@')[0]
-                name = ' '.join([part.capitalize() for part in username.split('.')])
-            else:
-                name = 'User'
-        
+            name = 'User'
+
+                
         # Generate initials for avatar
         name_parts = name.split()
         if len(name_parts) >= 2:

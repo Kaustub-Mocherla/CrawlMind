@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for CrawlMind - Dark Theme */
+@layer base {
+  * {
+    @apply border-slate-700;
+  }
+  body {
+    background: linear-gradient(135deg, #000000, #1a1a1a, #000000);
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background: linear-gradient(135deg, #4A9EFF, #2d7fff);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(74, 158, 255, 0.25);
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #2d7fff, #1e5ba8);
+    box-shadow: 0 12px 35px rgba(74, 158, 255, 0.4);
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  .btn-secondary {
+    background: rgba(0, 0, 0, 0.8);
+    color: #4A9EFF;
+    border: 1px solid rgba(74, 158, 255, 0.3);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-secondary:hover {
+    background: rgba(74, 158, 255, 0.1);
+    border-color: #4A9EFF;
+    transform: translateY(-1px) scale(1.02);
+  }
+  
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-ghost:hover {
+    background: rgba(74, 158, 255, 0.1);
+    color: #4A9EFF;
+  }
+  
+  .card {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(16px);
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 1px solid rgba(74, 158, 255, 0.3);
+    transition: all 0.5s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 25px 50px -12px rgba(74, 158, 255, 0.2);
+    border-color: rgba(74, 158, 255, 0.5);
+  }
+  
+  .card-compact {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border: 1px solid rgba(74, 158, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .card-compact:hover {
+    box-shadow: 0 15px 35px rgba(74, 158, 255, 0.15);
+    border-color: rgba(74, 158, 255, 0.4);
+  }
+  
+  .gradient-header {
+    @apply bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800;
+  }
+  
+  .gradient-background {
+    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900/20;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent;
+  }
+  
+  .loading-spinner {
+    @apply animate-spin rounded-full border-4 border-slate-700 border-t-blue-500;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .input-field {
+    @apply block w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-xl shadow-sm placeholder-slate-400 text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300;
+  }
+  
+  .navbar {
+    @apply bg-slate-900/95 backdrop-blur-sm shadow-lg border-b border-slate-700 sticky top-0 z-50;
+  }
+  
+  /* Dark Streamlit-inspired utilities */
+  .streamlit-card {
+    @apply bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden hover:border-slate-600 transition-all duration-500;
+  }
+  
+  .streamlit-header {
+    @apply bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white;
+  }
+  
+  .streamlit-bg {
+    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900/20;
+  }
+  
+  .streamlit-button {
+    @apply bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105 active:scale-95;
+  }
+  
+  .streamlit-button-secondary {
+    @apply bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-600 hover:border-blue-500 font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95;
+  }
+  
+  .notification-success {
+    @apply bg-emerald-600 text-white rounded-xl shadow-lg border border-emerald-500/50;
+  }
+  
+  .notification-error {
+    @apply bg-red-600 text-white rounded-xl shadow-lg border border-red-500/50;
+  }
+  
+  .notification-info {
+    @apply bg-blue-600 text-white rounded-xl shadow-lg border border-blue-500/50;
+  }
+  
+  .tab-active {
+    @apply bg-blue-600 text-white shadow-lg border border-blue-500;
+  }
+  
+  .tab-inactive {
+    @apply text-slate-400 hover:text-blue-400 hover:bg-slate-800/50;
+  }
+  
+  .metric-card {
+    @apply rounded-xl p-6 border border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-slate-800/50 backdrop-blur-sm;
+  }
+  
+  .glass-effect {
+    @apply bg-slate-800/60 backdrop-blur-sm border border-slate-700/50;
+  }
+}
+
+/* Clerk component customizations - Blue & Black Theme */
+.cl-formButtonPrimary {
+  background: linear-gradient(135deg, #4A9EFF, #2d7fff) !important;
+  border: none !important;
+  box-shadow: 0 8px 25px rgba(74, 158, 255, 0.3) !important;
+}
+
+.cl-formButtonPrimary:hover {
+  background: linear-gradient(135deg, #2d7fff, #1e5ba8) !important;
+  box-shadow: 0 12px 35px rgba(74, 158, 255, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+.cl-footerActionLink {
+  color: #4A9EFF !important;
+}
+
+.cl-footerActionLink:hover {
+  color: #87CEEB !important;
+}
+
+.cl-card {
+  background: rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(74, 158, 255, 0.3) !important;
+}
+
+.cl-headerTitle {
+  color: #ffffff !important;
+}
+
+.cl-headerSubtitle {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.cl-formFieldInput {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(74, 158, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Enhanced animations for Streamlit-like experience */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+}

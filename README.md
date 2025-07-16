@@ -1,5 +1,13 @@
-# 🔵 CrawlMind - Full Stack AI RAG System
-
+@"
+   ___          
+   ______                    ____  ____           __
+  / ____/________ __      __/ /  |/  (_)___  ____/ /
+ / /   / ___/ __ `/ | /| / / / /|_/ / / __ \/ __  / 
+/ /___/ /  / /_/ /| |/ |/ / / /  / / / / / / /_/ /  
+\____/_/   \__,_/ |__/|__/_/_/  /_/_/_/ /_/\__,_/   
+                                                    
+                    
+"@
 <p align="center">
   <img src="artificial-intelligence.png" alt="CrawlMind Logo" width="200" height="200">
 </p>

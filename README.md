@@ -3,7 +3,7 @@
   <img src="artificial-intelligence.png" alt="CrawlMind Logo" width="200" height="200">
 </p>
 
-<p align="center">
+<div align="center">
   <pre> 
     
  ██████╗██████╗  █████╗ ██╗    ██╗██╗     ███╗   ███╗██╗███╗   ██╗██████╗ 
@@ -15,7 +15,7 @@
                                                                           
 
   </pre>
-</p>
+</div>
 <p align="center">
   A <strong>production-ready</strong> AI-powered document analysis platform with <strong>Clerk authentication</strong>, <strong>Framer Motion animations</strong>, and a modern dark theme combining Next.js, FastAPI, and Streamlit for a complete RAG (Retrieval Augmented Generation) solution.
 </p>

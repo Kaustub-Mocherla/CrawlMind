@@ -13,14 +13,17 @@
   <img src="artificial-intelligence.png" alt="CrawlMind Logo" width="200" height="200">
 </p>
 
-A **production-ready** AI-powered document analysis platform with **Clerk authentication**, **Framer Motion animations**, and a **modern dark theme** combining Next.js, FastAPI, and Streamlit for a complete RAG (Retrieval Augmented Generation) solution.
+<p align="center">
+  A <strong>production-ready</strong> AI-powered document analysis platform with <strong>Clerk authentication</strong>, <strong>Framer Motion animations</strong>, and a modern dark theme combining Next.js, FastAPI, and Streamlit for a complete RAG (Retrieval Augmented Generation) solution.
+</p>
 
-![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)
-![Next.js](https://img.shields.io/badge/Next.js-15.3.5+-black.svg)
-![Clerk](https://img.shields.io/badge/Clerk-5.7.5+-purple.svg)
-![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23.5+-pink.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-
+<p align="center">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.13+-blue.svg">
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-15.3.5+-black.svg">
+  <img alt="Clerk" src="https://img.shields.io/badge/Clerk-5.7.5+-purple.svg">
+  <img alt="Framer Motion" src="https://img.shields.io/badge/Framer%20Motion-12.23.5+-pink.svg">
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-green.svg">
+</p>
 ##  **System Architecture**          
 
 ```

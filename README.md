@@ -1,11 +1,11 @@
 ```
-   ___          
-   ______                    ____  ____           __
-  / ____/________ __      __/ /  |/  (_)___  ____/ /
- / /   / ___/ __ `/ | /| / / / /|_/ / / __ \/ __  / 
-/ /___/ /  / /_/ /| |/ |/ / / /  / / / / / / /_/ /  
-\____/_/   \__,_/ |__/|__/_/_/  /_/_/_/ /_/\__,_/   
-
+                                                                                       ___          
+                                                                                       ______                    ____  ____           __
+                                                                                      / ____/________ __      __/ /  |/  (_)___  ____/ /
+                                                                                     / /   / ___/ __ `/ | /| / / / /|_/ / / __ \/ __  / 
+                                                                                    / /___/ /  / /_/ /| |/ |/ / / /  / / / / / / /_/ /  
+                                                                                    \____/_/   \__,_/ |__/|__/_/_/  /_/_/_/ /_/\__,_/   
+                                                                                    
 ```
 <p align="center">
   <img src="artificial-intelligence.png" alt="CrawlMind Logo" width="200" height="200">
@@ -43,16 +43,16 @@ A **production-ready** AI-powered document analysis platform with **Clerk authen
 ## ✨ **Features**
 
 ### 🎨 **Modern UI/UX**
-- 🌙 **Dark Theme** - Sleek black interface with #4A9EFF blue accents
-- ✨ **Framer Motion** - Smooth animations and transitions
-- � **Responsive Design** - Tailwind CSS with mobile-first approach
-- � **Interactive Elements** - Hover effects and spring animations
+- **Dark Theme** - Sleek black interface with #4A9EFF blue accents
+- **Framer Motion** - Smooth animations and transitions
+- **Responsive Design** - Tailwind CSS with mobile-first approach
+- **Interactive Elements** - Hover effects and spring animations
 
 ### 🔐 **Enterprise Authentication**
-- 👤 **Clerk Integration** - Enterprise-grade user management
-- 🔑 **JWT Tokens** - Secure authentication flow
-- 👥 **User Profiles** - Complete profile management
-- �️ **Protected Routes** - Secure access control
+- **Clerk Integration** - Enterprise-grade user management
+- **JWT Tokens** - Secure authentication flow
+- **User Profiles** - Complete profile management
+- **Protected Routes** - Secure access control
 
 ### 🤖 **AI-Powered Features**
 - � **Document Processing** - PDF, TXT, DOCX, PPTX support

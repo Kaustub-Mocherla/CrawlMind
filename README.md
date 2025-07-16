@@ -21,7 +21,7 @@ A **production-ready** AI-powered document analysis platform with **Clerk authen
 ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23.5+-pink.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## 🏗️ **System Architecture**
+##  **System Architecture**
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -42,26 +42,26 @@ A **production-ready** AI-powered document analysis platform with **Clerk authen
  Dark Theme UI           AI Chat Interface
 ```
 
-## ✨ **Features**
+## **Features**
 
-### 🎨 **Modern UI/UX**
+### **Modern UI/UX**
 - **Dark Theme** - Sleek black interface with #4A9EFF blue accents
 - **Framer Motion** - Smooth animations and transitions
 - **Responsive Design** - Tailwind CSS with mobile-first approach
 - **Interactive Elements** - Hover effects and spring animations
 
-### 🔐 **Enterprise Authentication**
+### **Enterprise Authentication**
 - **Clerk Integration** - Enterprise-grade user management
 - **JWT Tokens** - Secure authentication flow
 - **User Profiles** - Complete profile management
 - **Protected Routes** - Secure access control
 
-### 🤖 **AI-Powered Features**
-- � **Document Processing** - PDF, TXT, DOCX, PPTX support
-- 🌐 **Advanced Web Crawling** - JavaScript execution and CSS selectors
-- � **AI Chat Interface** - Query documents with Google Gemini
-- � **Vector Search** - ChromaDB with semantic search
-- 🧠 **RAG Pipeline** - Retrieval Augmented Generation
+### **AI-Powered Features**
+- **Document Processing** - PDF, TXT, DOCX, PPTX support
+- **Advanced Web Crawling** - JavaScript execution and CSS selectors
+- **AI Chat Interface** - Query documents with Google Gemini
+- **Vector Search** - ChromaDB with semantic search
+- **RAG Pipeline** - Retrieval Augmented Generation
 
 ## 🛠️ **Tech Stack**
 
@@ -172,7 +172,7 @@ cd ..
    }
    ```
 
-**⚠️ Important Notes**: 
+** Important Notes**: 
 - Do NOT include reserved claims (`iss`, `aud`, `exp`, `iat`, `nbf`)
 - Clerk handles JWT validation automatically
 - Keep payload minimal for performance
@@ -247,7 +247,7 @@ python check_services.py --watch
 - **FastAPI Backend**: http://localhost:8000 (API backend)
 - **API Documentation**: http://localhost:8000/docs (Swagger UI)
 
-## 🔄 **User Flow**
+##  **User Flow**
 
 1. **Sign Up/In** at http://localhost:3000 using Clerk
 2. **Access Dashboard** and click "Launch CrawlMind AI Assistant" 
@@ -256,7 +256,7 @@ python check_services.py --watch
 5. **Click "Crawl & Embed"** to process documents
 6. **Start Chatting** with your AI assistant!
 
-## 🔧 **API Endpoints**
+##  **API Endpoints**
 
 ### **FastAPI Backend** (`http://localhost:8000`)
 
@@ -275,7 +275,7 @@ Authorization: Bearer <jwt_token_from_clerk>
 Content-Type: application/json
 ```
 
-## 🎨 **UI Features**
+## **UI Features**
 
 ### **Modern Dark Theme**
 - **Color Scheme**: `#4A9EFF` blue accents on black background
@@ -289,7 +289,7 @@ Content-Type: application/json
 - **Toast Notifications**: Success/error feedback
 - **Modal Dialogs**: Clean popup interfaces
 
-## 🛠️ **Development**
+##  **Development**
 
 ### **Project Structure**
 ```
@@ -321,7 +321,7 @@ CrawlMind/
 #### **UI (Streamlit)**
 - `app.py` - Interactive document chat interface
 
-## 🐛 **Troubleshooting**
+##  **Troubleshooting**
 
 ### **Common Issues**
 
@@ -365,7 +365,7 @@ DEBUG=true
 LOG_LEVEL=debug
 ```
 
-## 🤝 **Contributing**
+##  **Contributing**
 
 We welcome contributions! Please follow these steps:
 
@@ -399,7 +399,7 @@ npm run type-check
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 **Acknowledgments**
+##  **Acknowledgments**
 
 - **Clerk** - Enterprise authentication platform
 - **Google Gemini** - Advanced AI language model
@@ -409,13 +409,13 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Next.js** - React framework
 - **FastAPI** - High-performance Python API framework
 
-## 📞 **Support**
+##  **Support**
 
 - **Issues**: [GitHub Issues](https://github.com/your-username/CrawlMind/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/your-username/CrawlMind/discussions)
 - **Email**: support@crawlmind.ai
 
-## 🚀 **Deployment**
+## **Deployment**
 
 ### **Production Deployment**
 

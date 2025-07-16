@@ -1,4 +1,4 @@
-```
+  ```
                      ___          
                ______                    ____  ____           __
               / ____/________ __      __/ /  |/  (_)___  ____/ /
@@ -15,13 +15,9 @@
 
 A **production-ready** AI-powered document analysis platform with **Clerk authentication**, **Framer Motion animations**, and a **modern dark theme** combining Next.js, FastAPI, and Streamlit for a complete RAG (Retrieval Augmented Generation) solution.
 
-![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)
-![Next.js](https://img.shields.io/badge/Next.js-15.3.5+-black.svg)
-![Clerk](https://img.shields.io/badge/Clerk-5.7.5+-purple.svg)
-![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23.5+-pink.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Python](https://img.shields.io/badge/Python-3.13+-blue.svg) ![Next.js](https://img.shields.io/badge/Next.js-15.3.5+-black.svg) ![Clerk](https://img.shields.io/badge/Clerk-5.7.5+-purple.svg) ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23.5+-pink.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-##  **System Architecture**
+##  **System Architecture**          
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐

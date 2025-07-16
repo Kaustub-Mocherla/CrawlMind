@@ -25,7 +25,7 @@
   <img alt="Next.js" src="https://img.shields.io/badge/Next.js-15.3.5+-black.svg">
   <img alt="Clerk" src="https://img.shields.io/badge/Clerk-5.7.5+-purple.svg">
   <img alt="Framer Motion" src="https://img.shields.io/badge/Framer%20Motion-12.23.5+-pink.svg">
-  <img alt="License" src="https://img.shields.io/badge/License-MIT-green.svg">
+  
 </p>
 ##  **System Architecture**          
 
@@ -401,9 +401,6 @@ npm run lint
 npm run type-check
 ```
 
-## 📄 **License**
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ##  **Acknowledgments**
 

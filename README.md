@@ -25,7 +25,8 @@
   <img alt="Next.js" src="https://img.shields.io/badge/Next.js-15.3.5+-black.svg">
   <img alt="Clerk" src="https://img.shields.io/badge/Clerk-5.7.5+-purple.svg">
   <img alt="Framer Motion" src="https://img.shields.io/badge/Framer%20Motion-12.23.5+-pink.svg">
-  <img alt="ChromaDB" src="https://img.shields.io/badge/ChromaDB-0.5.23-orange.svg">   
+  <img alt="ChromaDB" src="https://img.shields.io/badge/ChromaDB-0.5.23-orange.svg">
+  <img alt="Google Gemini" src="https://img.shields.io/badge/Google%20Gemini-1.5--flash-blue.svg">
 </p>
 ##  **System Architecture**          
 

@@ -70,7 +70,7 @@
 - **Vector Search** - ChromaDB with semantic search
 - **RAG Pipeline** - Retrieval Augmented Generation
 
-## 🛠️ **Tech Stack**
+##  **Tech Stack**
 
 ### **Frontend**
 - **Next.js 15.3.5** - React framework with App Router
@@ -94,7 +94,7 @@
 - **ChromaDB 0.5.23** - Vector database
 - **Crawl4AI 0.2.77** - Advanced web crawling
 
-## 📋 **Quick Start**
+##  **Quick Start**
 
 ### **Prerequisites**
 
